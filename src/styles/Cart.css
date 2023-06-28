@@ -5,7 +5,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 200px;
+	width: 230px;
 
 	z-index: 2;
     bottom:0;
@@ -42,4 +42,19 @@
 
 .lmj-cart-closed > button {
 	color: black;
+}
+
+.lmj-spin-amount {
+	width: 35px;
+	margin-left: 5px;
+}
+
+.lmj-cart-item {
+	display: flex;
+	margin: 5px 0;
+}
+
+.trash-icon {
+	align-self: center;
+	margin-left: 5px;
 }
