@@ -5,7 +5,7 @@ import Categories from "./Categories"
 import PlantItem from './PlantItem'
 
 function ShoppingList({cart, updateCart}) {
-    const [categorieSelected, setCategorieSelected] = useState('')
+    const [categoriesSelected, setCategoriesSelected] = useState([])
     const categories = plantList.reduce(
         (acc, plant) => acc.includes(plant.category) ? acc : acc.concat(plant.category), []
     )
@@ -30,14 +30,14 @@ function ShoppingList({cart, updateCart}) {
         <div className='lmj-shopping-list'>
 			<Categories 
                 categories={categories} 
-                categorieSelected={categorieSelected}
-                setCategorieSelected={setCategorieSelected}
+                categoriesSelected={categoriesSelected}
+                setCategoriesSelected={setCategoriesSelected}
             />
 			<ul className='lmj-plant-list'>
 				{
                     plantList
                         .map(({id, name, cover, water, light, price, category}) => (
-                            ( !categorieSelected || categorieSelected === category)
+                            ( categoriesSelected.length === 0 || categoriesSelected.includes(category) )
                             &&
                             <div key={id}>
                                 <PlantItem
